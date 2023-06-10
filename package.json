@@ -1,0 +1,22 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "Simple Tic tac toe game with html, css and vanilla javascript",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ali-mashayekhi/tic-tac-toe.git"
+  },
+  "author": "Ali Mashayekhi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ali-mashayekhi/tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/ali-mashayekhi/tic-tac-toe#readme",
+  "devDependencies": {
+    "parcel": "^2.9.2"
+  }
+}
