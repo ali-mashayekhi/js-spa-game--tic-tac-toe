@@ -35,6 +35,7 @@ body {
 
 .block:hover {
   background-color: #dac3f9;
+  cursor: pointer;
 }
 
 .block-1 {
