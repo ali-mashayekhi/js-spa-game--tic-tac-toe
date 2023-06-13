@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  cursor: default;
 }
 
 body {
@@ -33,10 +34,10 @@ body {
   justify-content: center;
 }
 
-.block:hover {
+/* .block:hover {
   background-color: #dac3f9;
   cursor: pointer;
-}
+} */
 
 .block-1 {
   border-top-left-radius: 10px;
@@ -108,7 +109,7 @@ body {
 
 .cross {
   color: #fb5607;
-  font-size: 70px;
+  font-size: 60px;
   font-weight: normal;
 }
 
@@ -116,8 +117,12 @@ body {
   margin-top: 15px;
 }
 
+.player .cross {
+  font-size: 70px;
+}
+
 .turn .cross {
-  font-size: 80;
+  font-size: 70px;
 }
 .turn .dot {
   font-size: 80;
