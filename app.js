@@ -5,6 +5,11 @@ const blockElements = Array.from(document.querySelectorAll(".block"));
 const player1ScoreEl = document.querySelector(".player1-score-value");
 const player2ScoreEl = document.querySelector(".player2-score-value");
 const turnEl = document.querySelector(".turn");
+const winnerBoxEl = document.querySelector(".winner-box");
+const tableEl = document.querySelector(".table");
+const rematchBtn = document.querySelector(".rematch-btn");
+const body = document.querySelector("body");
+const playersEl = document.querySelector(".players");
 
 // Important variables
 let turn = false; // false for player one and true for player 2W
@@ -45,13 +50,33 @@ blockElements.forEach((blockEl) => {
     // 3) Check to see if we have a winner or not
     if (!turn) {
       if (checkwinner(playedBlocks.player1.sort())) {
+        // Set display changes
         player1ScoreEl.textContent = +player1ScoreEl.textContent + 1;
+        winnerBoxEl.style.display = "grid";
+        tableEl.style.margin = 0;
+        playersEl.classList.add("blur");
+        // body.style.filter = "blur(2px)";
+        // body.classList.add("blur");
+        // winnerBoxEl.classList.add("no-blur");
+        // tableEl.classList.add("no-blur");
+        // winnerBoxEl.classList.add("no-blur");
+        // tableEl.classList.add("no-blur");
         winner = true;
         return;
       }
     } else {
       if (checkwinner(playedBlocks.player2.sort())) {
+        // Set display changes
         player2ScoreEl.textContent = +player2ScoreEl.textContent + 1;
+        winnerBoxEl.style.display = "grid";
+        tableEl.style.margin = 0;
+        playersEl.classList.add("blur");
+        // tableEl.classList.add("no-blur");
+        // body.style.filter = "blur(2px)";
+        // body.classList.add("blur");
+        // winnerBoxEl.classList.add("no-blur");
+        // tableEl.classList.add("no-blur");
+
         winner = true;
         return;
       }
@@ -64,4 +89,16 @@ blockElements.forEach((blockEl) => {
 
     console.log();
   });
+});
+
+rematchBtn.addEventListener("click", function () {
+  winner = false;
+  blockElements.forEach((el) => (el.innerHTML = ""));
+  winnerBoxEl.style.display = "none";
+  tableEl.style.margin = "0 auto";
+  playersEl.classList.remove("blur");
+  playedBlocks.player1 = [];
+  playedBlocks.player2 = [];
+  turn = false;
+  turnEl.innerHTML = '<div class="dot"></div>';
 });

@@ -1,4 +1,5 @@
 * {
+  border: 0;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -11,11 +12,44 @@ body {
   color: #f3ebfd;
   font-size: 30px;
 }
+/* Main Box */
+.main-box {
+  margin: 80px auto;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.winner-box {
+  display: grid;
+  gap: 10px;
+  display: none;
+}
+
+.winner {
+  font-size: 26px;
+}
+
+.rematch-btn {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #0d0618;
+  background-color: #ff006e;
+  padding: 10px 20px;
+  justify-self: center;
+  border-radius: 5px;
+}
+
+.rematch-btn:hover {
+  cursor: pointer;
+  background-color: #ff1a7d;
+}
 /* TABLE */
 .table {
   background-color: #800037;
-  margin: 80px auto;
+  margin: 0 auto;
   width: 300px;
   height: 300px;
   display: grid;
@@ -128,4 +162,8 @@ body {
   font-size: 80;
   height: 40px;
   width: 40px;
+}
+
+.blur {
+  filter: blur(2px);
 }
