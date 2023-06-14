@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Simple Tic tac toe game with html, css and vanilla javascript",
   "source": "index.html",
+  "default": "index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build --dist-dir ./dist"
   },
   "repository": {
     "type": "git",
