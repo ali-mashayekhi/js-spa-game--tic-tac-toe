@@ -1,4 +1,10 @@
-import { blockHasMark, checkwinner, setMark } from "./helpers";
+import {
+  addBlurStyleToTable,
+  blockHasMark,
+  blurBlocks,
+  checkwinner,
+  setMark,
+} from "./helpers";
 
 // Selecting Elements
 const blockElements = Array.from(document.querySelectorAll(".block"));
@@ -55,12 +61,8 @@ blockElements.forEach((blockEl) => {
         winnerBoxEl.style.display = "grid";
         tableEl.style.margin = 0;
         playersEl.classList.add("blur");
-        // body.style.filter = "blur(2px)";
-        // body.classList.add("blur");
-        // winnerBoxEl.classList.add("no-blur");
-        // tableEl.classList.add("no-blur");
-        // winnerBoxEl.classList.add("no-blur");
-        // tableEl.classList.add("no-blur");
+        addBlurStyleToTable(blurBlocks(playedBlocks.player1.sort()));
+
         winner = true;
         return;
       }
@@ -71,11 +73,8 @@ blockElements.forEach((blockEl) => {
         winnerBoxEl.style.display = "grid";
         tableEl.style.margin = 0;
         playersEl.classList.add("blur");
-        // tableEl.classList.add("no-blur");
-        // body.style.filter = "blur(2px)";
-        // body.classList.add("blur");
-        // winnerBoxEl.classList.add("no-blur");
-        // tableEl.classList.add("no-blur");
+
+        addBlurStyleToTable(blurBlocks(playedBlocks.player2.sort()));
 
         winner = true;
         return;
@@ -97,6 +96,7 @@ rematchBtn.addEventListener("click", function () {
   winnerBoxEl.style.display = "none";
   tableEl.style.margin = "0 auto";
   playersEl.classList.remove("blur");
+  blockElements.forEach((blockEl) => blockEl.classList.remove("blur"));
   playedBlocks.player1 = [];
   playedBlocks.player2 = [];
   turn = false;
