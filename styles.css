@@ -29,6 +29,7 @@ body {
 
 .winner {
   font-size: 26px;
+  text-align: center;
 }
 
 .rematch-btn {

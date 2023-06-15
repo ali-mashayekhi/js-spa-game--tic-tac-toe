@@ -2,6 +2,7 @@ import {
   addBlurStyleToTable,
   blockHasMark,
   blurBlocks,
+  checkTie,
   checkwinner,
   setMark,
 } from "./helpers";
@@ -16,6 +17,7 @@ const tableEl = document.querySelector(".table");
 const rematchBtn = document.querySelector(".rematch-btn");
 const body = document.querySelector("body");
 const playersEl = document.querySelector(".players");
+const winnerEl = document.querySelector(".winner");
 
 // Important variables
 let turn = false; // false for player one and true for player 2W
@@ -24,6 +26,7 @@ const playedBlocks = {
   player2: [],
 };
 let winner = false;
+let tie = false;
 
 blockElements.forEach((blockEl) => {
   blockEl.addEventListener("mouseover", function () {
@@ -53,7 +56,7 @@ blockElements.forEach((blockEl) => {
       ? playedBlocks.player1.push(+blockEl.dataset.blockNumber)
       : playedBlocks.player2.push(+blockEl.dataset.blockNumber);
 
-    // 3) Check to see if we have a winner or not
+    // 4) Check to see if we have a winner or not
     if (!turn) {
       if (checkwinner(playedBlocks.player1.sort())) {
         // Set display changes
@@ -62,6 +65,9 @@ blockElements.forEach((blockEl) => {
         tableEl.style.margin = 0;
         playersEl.classList.add("blur");
         addBlurStyleToTable(blurBlocks(playedBlocks.player1.sort()));
+        console.log(winnerEl);
+        console.log(winnerEl.innerHTML);
+        winnerEl.innerHTML = "Player 1 Won 🔥";
 
         winner = true;
         return;
@@ -73,17 +79,26 @@ blockElements.forEach((blockEl) => {
         winnerBoxEl.style.display = "grid";
         tableEl.style.margin = 0;
         playersEl.classList.add("blur");
-
         addBlurStyleToTable(blurBlocks(playedBlocks.player2.sort()));
+        winnerEl.innerHTML = "Player 2 Won 🔥";
 
         winner = true;
         return;
       }
     }
 
-    // 4) Change turn
+    // 5) Check for draw
+    if (checkTie(playedBlocks)) {
+      winnerBoxEl.style.display = "grid";
+      tableEl.style.margin = 0;
+      winnerEl.innerHTML = "Tie 🔥";
+
+      tie = true;
+    }
+
+    // 6) Change turn
     turn = !turn;
-    // 4.1) change mark in turn showcase
+    // 6.1) change mark in turn showcase
     setMark(turnEl, turn);
 
     console.log();

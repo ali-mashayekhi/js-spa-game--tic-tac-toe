@@ -161,3 +161,8 @@ export function addBlurStyleToTable(blocks) {
     });
   });
 }
+
+export function checkTie(blocks) {
+  if (blocks.player1.concat(blocks.player2).length === 9) return true;
+  return false;
+}
