@@ -2,11 +2,6 @@
 
 Tic tac toe game with 2 players and each player win and tie as possible result.
 
-## Table of contents
-
-- [Links](#links)
-- [Built with](#built-with)
-- [Author](#author)
 
 ## Links
 
